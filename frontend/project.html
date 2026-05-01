@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">Task<span>Flow</span></span>
+      <a href="/projects" style="color:var(--muted);font-size:.88rem">← Projects</a>
+      <span style="color:var(--muted);font-size:.88rem;margin-left:auto">Hello, <strong id="topbar-user"></strong></span>
+      <button class="btn btn-secondary btn-sm" id="btn-logout">Logout</button>
+    </header>
+
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Navigation</div>
+        <a href="/dashboard" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="/projects" data-page="projects"><span class="icon">📂</span> Projects</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <!-- Project header -->
+      <div class="page-header">
+        <div>
+          <h1 id="proj-title">Loading…</h1>
+          <p id="proj-desc" style="color:var(--muted)"></p>
+        </div>
+        <!-- Admin-only actions -->
+        <div class="flex gap-2 hidden" id="admin-actions">
+          <button class="btn btn-secondary" onclick="openAddMember()">+ Add Member</button>
+          <button class="btn btn-primary" onclick="openCreateTask()">+ New Task</button>
+        </div>
+      </div>
+
+      <!-- Tasks table -->
+      <div class="card mb-4">
+        <h2 style="font-size:1rem;margin-bottom:16px">Tasks</h2>
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Priority</th>
+              <th>Assigned To</th>
+              <th>Due Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="task-body">
+            <tr><td colspan="6" class="text-muted" style="text-align:center;padding:24px">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Members -->
+      <div class="card">
+        <h2 style="font-size:1rem;margin-bottom:16px">Team Members</h2>
+        <div id="member-list"><p class="text-muted">Loading…</p></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+  <script>initProjectPage();</script>
+</body>
+</html>

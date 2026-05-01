@@ -1,0 +1,13 @@
+[build]
+# Railway auto-detects Python but we specify the build command explicitly
+builder = "nixpacks"
+
+[deploy]
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+
+# railway.toml is relative to the repo root.
+# We need to run uvicorn from inside backend/
+# Set the working directory via Railway's environment variable ROOT_DIR=backend
