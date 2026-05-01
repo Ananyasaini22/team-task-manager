@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top bar -->
+    <header class="topbar">
+      <span class="logo">Task<span>Flow</span></span>
+      <span style="color:var(--muted);font-size:.88rem">Hello, <strong id="topbar-user"></strong></span>
+      <button class="btn btn-secondary btn-sm" id="btn-logout">Logout</button>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Navigation</div>
+        <a href="/dashboard" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="/projects" data-page="projects"><span class="icon">📂</span> Projects</a>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Your task overview across all projects</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="num" id="stat-total">—</div>
+          <div class="lbl">Total Tasks</div>
+        </div>
+        <div class="stat-card">
+          <div class="num" id="stat-todo">—</div>
+          <div class="lbl">To Do</div>
+        </div>
+        <div class="stat-card info">
+          <div class="num" id="stat-inprogress">—</div>
+          <div class="lbl">In Progress</div>
+        </div>
+        <div class="stat-card success">
+          <div class="num" id="stat-done">—</div>
+          <div class="lbl">Done</div>
+        </div>
+        <div class="stat-card danger">
+          <div class="num" id="stat-overdue">—</div>
+          <div class="lbl">Overdue</div>
+        </div>
+      </div>
+
+      <!-- Two-column section -->
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start">
+        <!-- Recent tasks -->
+        <div class="card">
+          <h2 style="font-size:1rem;margin-bottom:16px">Recent Tasks</h2>
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th>Task</th><th>Status</th><th>Priority</th><th>Due</th><th>Health</th>
+              </tr>
+            </thead>
+            <tbody id="recent-tasks-body">
+              <tr><td colspan="5" class="text-muted" style="text-align:center;padding:24px">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Projects quick list -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+            <h2 style="font-size:1rem">My Projects</h2>
+            <a href="/projects" style="font-size:.85rem">View all →</a>
+          </div>
+          <div id="project-list"><p class="text-muted">Loading…</p></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+  <script>initDashboardPage();</script>
+</body>
+</html>

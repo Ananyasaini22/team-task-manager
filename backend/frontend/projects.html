@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">Task<span>Flow</span></span>
+      <span style="color:var(--muted);font-size:.88rem">Hello, <strong id="topbar-user"></strong></span>
+      <button class="btn btn-secondary btn-sm" id="btn-logout">Logout</button>
+    </header>
+
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Navigation</div>
+        <a href="/dashboard" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="/projects" data-page="projects"><span class="icon">📂</span> Projects</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Projects</h1>
+          <p>All projects you own or are a member of</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-project">+ New Project</button>
+      </div>
+
+      <div class="card-grid" id="projects-grid">
+        <p class="text-muted">Loading…</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+  <script>initProjectsPage();</script>
+</body>
+</html>
