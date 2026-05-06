@@ -1,10 +1,9 @@
-# TaskFlow — Team Task Manager
+#TaskFlow — Team Task Manager
 
 A full-stack web application for creating projects, managing teams, assigning tasks, and tracking progress with role-based access control.
 
 ## Live Demo
 
-> Add your Railway URL here after deployment
 
 ## Tech Stack
 

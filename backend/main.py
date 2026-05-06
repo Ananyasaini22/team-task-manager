@@ -54,18 +54,16 @@ async def dashboard(
     return await get_dashboard_data(current_user, db)
 
 
-# ── Health check (Railway uses this) ─────────────────────────────────────────
+#Health check(Railway uses this) 
 
 @app.get("/health")
 async def health():
     return {"status": "ok"}
 
 
-# ── Serve frontend static files ───────────────────────────────────────────────
-# The frontend/ folder is placed beside backend/ in the repo root.
-# We mount it so one Railway service serves both API and UI.
 
-FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
+
+FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "frontend")
 
 if os.path.isdir(FRONTEND_DIR):
     app.mount("/static", StaticFiles(directory=os.path.join(FRONTEND_DIR, "assets")), name="static")
