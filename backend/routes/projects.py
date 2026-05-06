@@ -91,7 +91,7 @@ async def update_project(
     current_user: dict = Depends(require_project_admin),
     db=Depends(get_db),
 ):
-    updates = {k: v for k, v in body.model_dump().items() if v is not None}
+    updates = {k: v for k, v in body.dict().items() if v is not None}
     if not updates:
         raise HTTPException(status_code=400, detail="No fields to update")
 
